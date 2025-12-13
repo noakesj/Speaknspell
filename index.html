@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speak 'n' Spell Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .game-info {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            color: #666;
+            font-size: 0.8em;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        #wordDisplay {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 20px;
+            min-height: 40px;
+        }
+
+        #userInput {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2em;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #userInput:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 5px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 1.2em;
+            min-height: 30px;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+
+        #message em {
+            display: block;
+            font-size: 0.9em;
+            font-weight: normal;
+            font-style: italic;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        #message strong {
+            color: #764ba2;
+        }
+
+        .correct {
+            color: #4caf50;
+        }
+
+        .incorrect {
+            color: #f44336;
+        }
+
+        .final-score {
+            font-size: 2em;
+            color: #667eea;
+            margin: 20px 0;
+        }
+
+        #startScreen, #gameScreen, #endScreen {
+            display: none;
+        }
+
+        #startScreen.active, #gameScreen.active, #endScreen.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎤 Speak 'n' Spell</h1>
+        
+        <div id="startScreen" class="active">
+            <p style="margin-bottom: 20px; font-size: 1.1em; color: #666;">
+                Test your spelling skills! Listen carefully and spell 10 words correctly.
+            </p>
+            <button id="startBtn">Start Game</button>
+        </div>
+
+        <div id="gameScreen">
+            <div class="game-info">
+                <div class="info-item">
+                    <span class="info-label">Word</span>
+                    <span class="info-value" id="currentWord">1/10</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Score</span>
+                    <span class="info-value" id="score">0</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Attempts</span>
+                    <span class="info-value" id="attempts">2</span>
+                </div>
+            </div>
+
+            <div id="wordDisplay">Listen to the word...</div>
+            
+            <input type="text" id="userInput" placeholder="Type the word here..." autocomplete="off">
+            
+            <div>
+                <button id="repeatBtn">🔊 Repeat Word</button>
+                <button id="submitBtn">Submit</button>
+            </div>
+            
+            <div id="message"></div>
+        </div>
+
+        <div id="endScreen">
+            <div class="final-score" id="finalScore"></div>
+            <p id="finalMessage" style="font-size: 1.2em; margin-bottom: 20px;"></p>
+            <button id="restartBtn">Play Again</button>
+        </div>
+    </div>
+
+    <script src="dictionary.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
+
