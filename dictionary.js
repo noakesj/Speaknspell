@@ -11,7 +11,7 @@ const WORD_DICTIONARY = {
     'sad': 'unhappy',
     'soft': 'how it feels',
     'happy': 'happy',
-    'spot', 'spot',
+    'spot': 'spot',
     'slow', 'slow',
     'lucky', 'lucky',
     'careful': 'careful',
