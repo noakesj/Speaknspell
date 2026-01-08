@@ -1,8 +1,6 @@
 // Kid-friendly dictionary for spelling game (6+ letters)
 // Age-appropriate words for children with definitions
 const WORD_DICTIONARY = {
-    // Animals
-    'animal': 'a living creature like a dog, cat, or bird',
     'pain': 'hurts',
     'painful': 'hurts',
     'care': 'careful',
