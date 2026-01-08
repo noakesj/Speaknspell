@@ -22,5 +22,5 @@ const WORD_DICTIONARY = {
     'happiness': 'happiness',
     'spotless': 'spotless',
     'slowly': 'slowly',
-    'luckily': 'luckily' 
+    'luckily': 'luckily', 
 };
