@@ -1,7 +1,7 @@
 // Kid-friendly dictionary for spelling game (6+ letters)
 // Age-appropriate words for children with definitions
 const WORD_DICTIONARY = {
-    'painful': 'Causing physical or emotional pain.',
+    'painful': 'Causing physical or emotional pain. :(',
     'careful': 'Taking care to avoid mistakes or accidents.',
     'pitiful': 'Deserving or causing feelings of pity.',
     'payment': 'The act of giving money for goods or services.',
