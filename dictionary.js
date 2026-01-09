@@ -1,7 +1,7 @@
 // Kid-friendly dictionary for spelling game (6+ letters)
 // Age-appropriate words for children with definitions
 const WORD_DICTIONARY = {
-    'painful': 'hurts',
+    'painful': 'painful',
     'careful': 'careful',
     'pitiful': 'pitiful',
     'payment': 'payment',
