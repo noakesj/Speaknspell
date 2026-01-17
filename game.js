@@ -161,9 +161,13 @@ function spellLetters(word, definition) {
     speakNextLetter();
 }
 
-// Debugging: Log currentWord and userAnswer for comparison
+// Normalize input to handle smart quotes from iOS devices
+function normalizeInput(input) {
+    return input.replace(/[‘’]/g, "'").trim();
+}
+
 function checkAnswer() {
-    const userAnswer = userInput.value.trim(); // Removed .toLowerCase() to preserve case
+    const userAnswer = normalizeInput(userInput.value); // Normalize user input
 
     console.log('Debug: currentWord =', currentWord);
     console.log('Debug: userAnswer =', userAnswer);
