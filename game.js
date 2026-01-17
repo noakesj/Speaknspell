@@ -161,26 +161,27 @@ function spellLetters(word, definition) {
     speakNextLetter();
 }
 
-// Check user's answer
+// Modify the checkAnswer function to handle apostrophes correctly
 function checkAnswer() {
-    const userAnswer = userInput.value.trim().toLowerCase();
-    
+    const userAnswer = userInput.value.trim(); // Removed .toLowerCase() to preserve case
+
     if (!userAnswer) {
         messageDiv.textContent = 'Please type a word!';
         messageDiv.className = 'incorrect';
         return;
     }
-    
+
+    // Compare userAnswer directly with currentWord
     if (userAnswer === currentWord) {
         // Correct answer
         score++;
         messageDiv.textContent = '✓ Correct!';
         messageDiv.className = 'correct';
-        
+
         // Speak encouragement
         const utterance = new SpeechSynthesisUtterance('Correct!');
         synth.speak(utterance);
-        
+
         // Move to next word after delay
         setTimeout(() => {
             currentWordIndex++;
@@ -190,13 +191,13 @@ function checkAnswer() {
         // Wrong answer
         attemptsLeft--;
         attemptsDisplay.textContent = attemptsLeft;
-        
+
         if (attemptsLeft > 0) {
             messageDiv.textContent = `✗ Incorrect. Try again! (${attemptsLeft} attempt${attemptsLeft > 1 ? 's' : ''} left)`;
             messageDiv.className = 'incorrect';
             userInput.value = '';
             userInput.focus();
-            
+
             // Speak the word again
             setTimeout(() => {
                 speakWord();
@@ -213,7 +214,6 @@ function checkAnswer() {
             }, 500);
 
             // Move to next word after delay (longer to allow for spelling + definition)
-            // Estimate: intro (2s) + letters (1s each) + word (1s) + definition (4s) + buffer (2s)
             const estimatedTime = 2000 + (currentWord.length * 1000) + 1000 + 4000 + 2000;
             setTimeout(() => {
                 currentWordIndex++;
