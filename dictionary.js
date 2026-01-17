@@ -12,4 +12,3 @@ const WORD_DICTIONARY = {
     "sheep's": "Belonging to or associated with a sheep.",
     "Mrs. Doran's": "Belonging to or associated with Mrs. Doran."
 };
-s

@@ -161,9 +161,12 @@ function spellLetters(word, definition) {
     speakNextLetter();
 }
 
-// Modify the checkAnswer function to handle apostrophes correctly
+// Debugging: Log currentWord and userAnswer for comparison
 function checkAnswer() {
     const userAnswer = userInput.value.trim(); // Removed .toLowerCase() to preserve case
+
+    console.log('Debug: currentWord =', currentWord);
+    console.log('Debug: userAnswer =', userAnswer);
 
     if (!userAnswer) {
         messageDiv.textContent = 'Please type a word!';
